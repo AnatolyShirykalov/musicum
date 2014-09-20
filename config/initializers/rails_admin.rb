@@ -1,0 +1,74 @@
+require 'rails_admin/custom_show_in_app'
+
+RailsAdminSettings.track_history!
+
+RailsAdmin.config do |config|
+  ## == Devise ==
+  # this is required if not using cancan
+  #config.authenticate_with do
+    #warden.authenticate! scope: :user
+  #end
+  
+  config.current_user_method(&:current_user)
+  
+  ## == Cancan ==
+  config.authorize_with :cancan
+
+  ## == MongoidAudit
+  config.audit_with :mongoid_audit, 'HistoryTracker'
+
+  config.actions do
+    dashboard # mandatory
+
+    # collection actions
+    index
+    new
+    export
+    bulk_delete
+
+    # member actions
+    show
+    edit
+    delete
+
+    history_index
+    history_show
+
+    nested_set do
+      visible do
+        ['Page', 'Slide', 'Partner'].include? bindings[:abstract_model].model_name
+      end
+    end
+    
+    custom_show_in_app do
+      visible do
+        ['Page', 'News'].include? bindings[:abstract_model].model_name
+      end
+    end
+    
+    toggle
+    toggle_menu
+  end
+
+  config.main_app_name = ['Musicum', 'Админка']
+
+  config.excluded_models = [
+      'RailsAdmin::CustomShowInApp', 'HistoryTracker',
+      'Ckeditor::Asset', 'Ckeditor::AttachmentFile', 'Ckeditor::Picture',
+  ]
+end
+
+# [required] fix for timezones to be displayed in local time instead of UTC
+module RailsAdmin
+  module Config
+    module Fields
+      module Types
+        class Datetime
+          def value
+            bindings[:object].send(name)
+          end
+        end
+      end
+    end
+  end
+end
