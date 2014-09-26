@@ -1,0 +1,3 @@
+class Concert
+  include Mongoid::Document
+end

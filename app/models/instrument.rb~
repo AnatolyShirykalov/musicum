@@ -1,0 +1,6 @@
+class Instrument
+  include Mongoid::Document
+  has_many :pairs
+  Андрей Владимирович Гугнин
+  #has_many :performers, through: :pairs	
+end

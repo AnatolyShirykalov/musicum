@@ -1,0 +1,5 @@
+<%= form_for @composer do |f| %>
+  Имя:<%= f.text_field :name %>
+  
+  <%= f.submit "Сохранить"
+<% end %>
