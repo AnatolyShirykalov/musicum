@@ -1,5 +1,0 @@
-class Piece
-  include Mongoid::Document
-  has_many :performs
-  belongs_to :composer
-end

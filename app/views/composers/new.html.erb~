@@ -1,6 +1,0 @@
-<%= form_for @composer, :html => {:multipart => true} do |f|%>
-  <%= f.text_area :name %>
-  <%= f.submit "Go"%>
-  <%= f.file_field :avatar %>
-<% end %>
-<%= #map.ymap data-hint="Миллениарт" data-lat="55.752346" data-lon="37.66962" data-addr="г. Москва, ул Удальцова, д 50." %>
