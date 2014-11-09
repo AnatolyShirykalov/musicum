@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :composers
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
+  #mount Uploader::Engine => '/uploader'
+  match '/tt', to: 'composers#tt', via: 'get'
+  match 'audio', to: 'audios#index', viaL 'get'
 
   get 'contacts' => 'contacts#index', as: :contacts
   post 'contacts' => 'contacts#create', as: :create_contacts

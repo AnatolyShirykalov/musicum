@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :composers
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
+  #mount Uploader::Engine => '/uploader'
+  match '/tt', to: 'composers#tt', via: 'get'
+  match 'audio', to: 'audios#index', via: 'get'
 
   get 'contacts' => 'contacts#index', as: :contacts
   post 'contacts' => 'contacts#create', as: :create_contacts

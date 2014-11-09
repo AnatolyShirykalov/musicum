@@ -1,1 +1,5 @@
-<%= form_for @composer %>
+<%= form_for @composer, :html => {:multipart => true} do |f|%>
+  <%= f.text_area :name %>
+  <%= f.submit "Go"%>
+  <%= f.file_field :avatar %>
+<% end %>
