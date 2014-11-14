@@ -7,12 +7,22 @@ class ComposersController < ApplicationController
   end
   def create
     @composer = Composer.create( composer_params )
-    redirect_to @composer
+    #render plain: params[:composer].inspect
+    if composer_pieces
+      composer_pieces.each do |key,value|
+        @composer.pieces.create(name: value[:name])
+      end
+    end
+    @pieces = @composer.pieces
+    #redirect_to @composer
   end
-  def tt
+  def index
   end
   private
   def composer_params
     params.require(:composer).permit(:avatar,:name)
+  end
+  def composer_pieces
+    params[:composer][:pieces_attributes]
   end
 end

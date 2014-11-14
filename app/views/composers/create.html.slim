@@ -1,0 +1,10 @@
+h1
+  = "Композитор #{@composer[:name]} успешно создан"
+p
+  = "Количество произведений #{@pieces.size}"
+- if @pieces and @pieces.size > 0
+  h2 с произведениями
+ul
+  - @composer.pieces.each do |piece|
+    li
+      = piece[:name]

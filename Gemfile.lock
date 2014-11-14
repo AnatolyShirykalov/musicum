@@ -214,6 +214,8 @@ GEM
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nested_form (0.3.2)
+    nested_form_fields (0.5.3)
+      rails (>= 3.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -425,6 +427,7 @@ DEPENDENCIES
   mini_magick
   mongoid (~> 4.0.0)
   mongoid-paperclip
+  nested_form_fields
   pry-rails
   rails (= 4.1.6)
   rocket_cms_mongoid

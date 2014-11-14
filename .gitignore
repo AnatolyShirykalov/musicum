@@ -12,4 +12,4 @@
 /public/assets
 /config/mongoid.yml
 /config/sectets.yml
-
+*~

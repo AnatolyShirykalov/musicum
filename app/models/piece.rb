@@ -5,4 +5,5 @@ class Piece
   #has_many :pairs, through: :groups
   #has_many :performers, through: :pairs
   belongs_to :composer
+  field :name, type: String
 end

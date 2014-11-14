@@ -1,0 +1,7 @@
+= form_for @composer, :html => {:multipart => true} do |f|
+  = f.text_area :name 
+  = f.submit "Go"
+  = f.file_field :avatar 
+  = f.nested_fields_for :pieces do |ff|
+    = ff.text_field :name
+  = f.add_nested_fields_link :pieces

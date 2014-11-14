@@ -6,6 +6,7 @@ gem 'rails', '4.1.6'
 gem 'mongoid', '~> 4.0.0'
 gem 'sass', '~> 3.4.4'
 
+gem 'nested_form_fields'
 gem 'rocket_cms_mongoid'
 gem 'browser'
 
