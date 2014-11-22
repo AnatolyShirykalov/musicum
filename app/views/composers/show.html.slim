@@ -1,0 +1,13 @@
+h1 
+  = @composer[:name]
+- if @composer.avatar
+  = image_tag @composer.avatar.url(:medium)
+p = link_to 'Список композиторов', composers_path
+p = link_to 'Удалить', composer_path(@composer),
+	    method: :delete,
+	    data: {confirm: 'Are you sure?' }
+- if @pieces and @pieces.size > 0
+  ol
+    - @composer.pieces.each do |piece|
+      li
+        = piece[:name]

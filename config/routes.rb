@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   resources :composers
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :news, only: [:index, :show]
 
-  root to: 'home#index'
+  root to: 'welcome#index'
 
   get '*slug' => 'pages#show'
   resources :pages, only: [:show]

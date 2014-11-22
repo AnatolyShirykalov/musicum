@@ -1,7 +1,15 @@
+= link_to 'Смотреть список композиторов', composers_path
 = form_for @composer, :html => {:multipart => true} do |f|
-  = f.text_area :name 
-  = f.submit "Go"
-  = f.file_field :avatar 
+  = f.label :co_url, "classic-online:"
+  = f.text_field :co_url
+  br
+  = f.label :avatar, "Портрет"
+  = f.file_field :avatar
+  br
   = f.nested_fields_for :pieces do |ff|
+    = ff.label :name, "Название произведения"
     = ff.text_field :name
-  = f.add_nested_fields_link :pieces
+    = ff.remove_nested_fields_link 'Исключить'
+  = f.add_nested_fields_link :pieces, 'Добавить произведение'
+  br
+  = f.submit "Сохранить"

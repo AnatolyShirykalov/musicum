@@ -6,4 +6,6 @@ class Piece
   #has_many :performers, through: :pairs
   belongs_to :composer
   field :name, type: String
+  field :co_url, type: String
+  field :opus, type: String
 end

@@ -1,0 +1,6 @@
+h1 Composers
+=link_to 'Добавить композитора', new_composer_path
+-if @composers
+  ul
+    - @composers.each do |composer|
+      li = link_to composer[:name], composer_path(composer)
