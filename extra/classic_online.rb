@@ -30,7 +30,7 @@ class ClassicOnline
       name = (h1.inner_text.split("\n")[0]).gsub(/ \z/,'')
       composer = Composer.any_of({co_url: url}).first
       composer = Composer.create(name: name,co_url: url) if composer.nil?
-      composer.avatar = f
+      composer.avatar = f if composer.avatar_file_name.nil?
       composer.save
       pieces = doc.css('tr[class="result"]')
       pieces.each do |piece|

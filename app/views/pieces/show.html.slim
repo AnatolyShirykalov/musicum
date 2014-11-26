@@ -1,0 +1,5 @@
+h1 = link_to @composer.name, @composer
+h2 = @piece.name
+p = @piece.opus
+p = link_to "Удалить", composer_piece_path(@composer,@piece),
+		method: :delete, data: {confirm: 'Are you sure?' }

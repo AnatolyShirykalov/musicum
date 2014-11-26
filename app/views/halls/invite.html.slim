@@ -1,0 +1,15 @@
+h1 Что хотим слушать?
+= form_for @condition, url: filter_path,method: "post" do |f|
+  p
+    = f.label :f_date, "От даты"
+    = f.date_select :f_date
+    = f.label :t_date, "До даты"
+    = f.date_select :t_date
+  p
+    = f.nested_fields_for :sufficients do |ff|
+      = ff.label :desc, 'Достаточное'
+      = ff.text_field :desc
+      = ff.remove_nested_fields_link 'Убрать последнее условие'
+    = f.add_nested_fields_link :sufficients, 'Добавить условие'
+  p
+    = f.submit "Пуск"

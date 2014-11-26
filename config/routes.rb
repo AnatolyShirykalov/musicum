@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :performs
 
   devise_for :users
-  resources :composers
+  resources :composers do
+    resources :pieces
+  end
+  match '/listen', to: 'halls#invite', via: 'get'
+  match '/filter', to: 'halls#filter', via: 'post'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount Ckeditor::Engine => '/ckeditor'
   #mount Uploader::Engine => '/uploader'

@@ -7,7 +7,8 @@ p = link_to 'Удалить', composer_path(@composer),
 	    method: :delete,
 	    data: {confirm: 'Are you sure?' }
 - if @pieces and @pieces.size > 0
-  ol
-    - @composer.pieces.each do |piece|
-      li
-        = piece[:name]
+  table
+    - (@composer.pieces.sort_by{|key| key[:opus]}).each do |piece|
+      tr
+        td = link_to piece[:name], (composer_piece_path @composer, piece)
+        td = piece[:opus] if piece[:opus]
