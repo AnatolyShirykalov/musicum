@@ -1,5 +1,7 @@
-h1 Вам предложено посетить следующие мероприятия
-ul
-  - @res.each do |event|
-    li = link_to event[:date].to_s, event[:url]
+h1.filter Вам предложено посетить следующие мероприятия
+- @res.each do |event|
+  .event-container 
+    p = link_to event[:date].to_s, event[:url]
+    .desc
+      = (render text: (event[:desc])) if event[:desc]
 = link_to "Ещё фильтр", listen_path

@@ -52,6 +52,8 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-sass (3.3.1.0)
+      sass (~> 3.2)
     browser (0.8.0)
     bson (2.3.0)
     builder (3.2.2)
@@ -161,6 +163,9 @@ GEM
     hike (1.2.3)
     hipchat (1.4.0)
       httparty
+    hpricot (0.8.6)
+    html2slim (0.1.0)
+      hpricot
     htmlentities (4.3.2)
     httparty (0.13.3)
       json (~> 1.8)
@@ -403,6 +408,7 @@ DEPENDENCIES
   aws-sdk (~> 1.3.4)
   better_errors
   binding_of_caller
+  bootstrap-sass
   browser
   cancancan
   capistrano (~> 3.2.0)
@@ -421,6 +427,7 @@ DEPENDENCIES
   glebtv-carrierwave-mongoid
   glebtv-mongoid-rspec
   hipchat
+  html2slim
   mini_magick
   mongoid (~> 4.0.0)
   mongoid-paperclip

@@ -28,21 +28,27 @@ class Mosconsv
    res
   end
   def parse_event(url,conditions={})
-    return nil if not url.to_s.include?("concert.aspx")
+    return nil if not url.to_s.include?("concert.aspx")    
+    c_url = (base_url + url).to_s
+    concert = Concert.any_of(url: c_url).first
+    #return concert if concert and concert[:desc] and concert[:prog]
     doc = doc_at_utf(url)
     hall = get_hall(doc)
     return nil if (hall.nil? or invalid(doc,conditions))
-    c_url = (URI.parse(hall.url) + url).to_s
-    concert = hall.concerts.any_of(url: c_url).first
-    return concert if concert
     txt= doc.at_css('title').inner_text.gsub(/\A[^\\z]*Афиша +(\d+) +([а-яё]+) +(\d+)[^\z]+\z/,'\3-\2-\1').split('-')
-    
-    concert = hall.concerts.create(url: c_url,
+    desc = doc.at_css('div[class="afisha-desc"]').inner_html
+    prog = doc.at_css('div[class="afisha-part-body"]').inner_html
+    concert.update!(desc: desc, prog: prog) if concert
+    return concert if concert
+    concert = hall.concerts.create(url: c_url, desc: desc, prog: prog,
 		date: Date.new(txt[0].to_i,get_month(txt[1]),txt[2].to_i))
   end
   def get_hall (doc)
     s = (doc.at_css('div[class="afisha-hall dotted-link"]')>('span')>('a')).inner_text
-    Hall.any_of(name: "#{"Большой" if s[0]=="Б"}#{"Малый" if s[0]=="М"}#{"Рахманиновский" if s[0]=="Р"} зал консерватории").first
+    name = "#{"Большой" if s[0]=="Б"}#{"Малый" if s[0]=="М"}#{"Рахманиновский" if s[0]=="Р"} зал консерватории"
+    hall = Hall.any_of(name: name).first
+    hall = Hall.create(name: name, url: base_url) if hall.nil?
+    hall
   end
   def get_month(text)
     kvs = { "января"   => 1, "февраля" =>  2, "марта"  =>  3, "апреля"   => 4,

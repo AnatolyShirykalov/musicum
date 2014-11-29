@@ -35,7 +35,8 @@ module Musicum
     config.autoload_paths += %W(#{config.root}/extra)
     config.eager_load_paths += %W(#{config.root}/extra)
     config.autoload_paths += %W(#{config.root}/app/uploaders)
-
+    
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.time_zone = 'Europe/Moscow'
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end

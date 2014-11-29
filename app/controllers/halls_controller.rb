@@ -13,12 +13,13 @@ class HallsController < ApplicationController
   private
     def conditions
       cons = []
+      return {:sufficient => cons} if params[:condition][:sufficients_attributes].nil?
       params[:condition][:sufficients_attributes].each do |k,v|
-	if v[:desc][0]=='/' and v[:desc][-1]=='/'
-	  cons<</#{v[:desc][1..-2]}/
-	else
+	      if v[:desc][0]=='/' and v[:desc][-1]=='/'
+	        cons<</#{v[:desc][1..-2]}/
+	      else
           cons<<v[:desc]
-	end
+	      end
       end
       {:sufficient => cons}
     end

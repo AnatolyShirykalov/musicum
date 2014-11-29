@@ -5,4 +5,6 @@ class Concert
   validates :date, presence: true
   field :date, type: Date
   field :url, type: String
+  field :desc, type: String
+  field :prog, type: String
 end
