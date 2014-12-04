@@ -2,6 +2,9 @@ h1.filter Вам предложено посетить следующие мер
 - @res.each do |event|
   .event-container 
     p = link_to event[:date].to_s, event[:url]
-    .desc
+    - if event.hall.avatar
+      .hall-avatar
+        = image_tag event.hall.avatar.url(:medium)
+    .event-desc
       = render inline: event[:desc]
 = link_to "Ещё фильтр", listen_path

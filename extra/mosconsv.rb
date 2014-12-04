@@ -31,7 +31,7 @@ class Mosconsv
     return nil if not url.to_s.include?("concert.aspx")    
     c_url = (base_url + url).to_s
     concert = Concert.any_of(url: c_url).first
-    #return concert if concert and concert[:desc] and concert[:prog]
+    return concert if concert and concert[:desc] and concert[:prog] and valid(concert,conditions)
     doc = doc_at_utf(url)
     hall = get_hall(doc)
     return nil if (hall.nil? or invalid(doc,conditions))
@@ -55,6 +55,17 @@ class Mosconsv
 	    "мая"      => 5, "июня"    =>  6, "июля"   =>  7, "августа"  => 8,
 	    "сетнября" => 9, "октября" => 10, "ноября" => 11, "декабря" => 12}
     kvs[text]
+  end
+  def valid(event,conditions={})
+    return false if event.nil?
+    return true if conditions=={}
+    list = conditions[:sufficient]
+    return true if list.nil? or list.empty?
+    return false if event[:desc].nil? and event[:prog].nil?
+    list.each do |word|
+      return true if (event[:desc] and event[:desc].match(word)) or (event[:prog] and event[:prog].match(word))
+    end
+    return false
   end
   def invalid(doc,conditions={})
     return false if conditions=={}
