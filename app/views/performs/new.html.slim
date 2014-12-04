@@ -1,16 +1,16 @@
 h1 Добавить исполнение
 = form_for @perform do |f|
-  p
+  .perform-desc
     = f.label :desc
     br
     = f.text_field :desc
-  p
+  .perform-group-id-select
     = f.label :group_id
     br
     = f.select(:group_id, @groups_for_select, :prompt => 'Select')
-  p
+  .perform-group-id-select
     = f.label :piece_id
     br
     = f.select(:piece_id, @pieces_for_select, :prompt => 'Select')
-  p
+  .perform-submit-button
     = f.submit

@@ -3,5 +3,5 @@ h1.filter Вам предложено посетить следующие мер
   .event-container 
     p = link_to event[:date].to_s, event[:url]
     .desc
-      = (render text: (event[:desc])) if event[:desc]
+      = render inline: event[:desc]
 = link_to "Ещё фильтр", listen_path
