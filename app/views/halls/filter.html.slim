@@ -7,4 +7,8 @@ h1.filter Вам предложено посетить следующие мер
         = image_tag event.hall.avatar.url(:medium)
     .event-desc
       = render inline: event[:desc]
+      - if not event[:prog].empty?
+        .event-prog
+          | В программе:
+      = render inline: event[:prog]
 = link_to "Ещё фильтр", listen_path
