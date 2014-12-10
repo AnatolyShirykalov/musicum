@@ -7,23 +7,30 @@ class Mosconsv
       html = open((base_url+url).to_s).read
       doc = Nokogiri::HTML(html.gsub('charset=windows-1251"', 'charset=utf-8"'))
     rescue => e
-      case e
-      when OpenURI::HTTPError
-        puts 'OpenURI::HTTPError'
-        nil
+      if (e.class ==  OpenURI::HTTPError) or (e.class== SocketError)
+        puts e.message
+        return e
       else
         raise e
       end
     end
   end
   def parse_date(date,conditions={})
-   res = []
+   res = Concert.any_of(date: date).to_a
+   if res != []
+     items = res
+     res = []
+     items.each do |item|
+       res = res | [item] if valid(item,conditions)
+     end
+   end
    url = "/ru/concert-date.aspx?sel_date=#{date.to_s}"
    doc = doc_at_utf(url)
+   return res if doc.class != Nokogiri::HTML::Document
    items = doc.css('div[class="center-conc-hall-item dotted-link"]')>('div[class="center-conc-hall-event-item dotted-link"]')>('div[id="right"]')>('div')>('a')
    items.each do |item|
      cur = parse_event(item.attr('href'),conditions)
-     res<<cur if cur
+     res = res | [cur] if cur
    end
    res
   end

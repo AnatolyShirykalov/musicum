@@ -1,9 +1,9 @@
 h1.filter Вам предложено посетить следующие мероприятия
 - @res.each do |event|
   .event-container 
-    p = link_to event[:date].to_s, event[:url]
-    - if event.hall.avatar
-      .hall-avatar
+    p = link_to event.date.to_s, event[:url]
+    .hall-avatar
+      - if event.hall.avatar_updated_at
         = image_tag event.hall.avatar.url(:medium)
     .event-desc
       = render inline: event[:desc]

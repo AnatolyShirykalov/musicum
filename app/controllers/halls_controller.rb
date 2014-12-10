@@ -1,7 +1,7 @@
 class HallsController < ApplicationController
   require 'mosconsv'
   def invite
-   @condition = Condition.new(f_date: Date.today, t_date: Date.today+30)
+   @condition = Condition.new(f_date: Date.today, t_date: Date.today+7)
   end
   def filter
     mc = Mosconsv.new
