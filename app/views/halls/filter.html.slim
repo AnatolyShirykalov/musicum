@@ -1,4 +1,14 @@
 h1.filter Вам предложено посетить следующие мероприятия
+h2.meloman Филармония
+- @meloman.each do |event|
+  .event-container
+    p = link_to event.date.to_s, event[:url]
+    .hall-avatar
+    .event-desc
+      = render inline: event[:desc] if event[:desc]
+      .event-prog
+        = render inline: event[:prog] if event[:prog]
+h2.mosconsv МГК им. П. И. Чайкосвкого
 - @res.each do |event|
   .event-container 
     p = link_to event.date.to_s, event[:url]
@@ -7,8 +17,8 @@ h1.filter Вам предложено посетить следующие мер
         = image_tag event.hall.avatar.url(:medium)
     .event-desc
       = render inline: event[:desc]
-      - if not event[:prog].empty?
+      - if event[:prog] and  not event[:prog].empty?
         .event-prog
           | В программе:
-      = render inline: event[:prog]
+        = render inline: event[:prog]
 = link_to "Ещё фильтр", listen_path
