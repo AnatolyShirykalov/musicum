@@ -1,9 +1,11 @@
 h1.filter Вам предложено посетить следующие мероприятия
 h2.meloman Филармония
 - @meloman.each do |event|
-  .event-container
+  .event-container.meloman
     p = link_to event.date.to_s, event[:url]
     .hall-avatar
+      - if event.hall.avatar_updated_at
+        = image_tag event.hall.avatar.url(:medium)
     .event-desc
       = render inline: event[:desc] if event[:desc]
       .event-prog

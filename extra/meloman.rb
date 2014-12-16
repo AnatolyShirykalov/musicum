@@ -55,8 +55,8 @@ class Meloman
     date = get_date((doc.css('div[style="text-align: center;"]')>('p[class="text size18"]')).first.inner_text.gsub(/(\n| {2,})/,''))
     texts = doc.css('div[class="right-half programme"]')>('div[class="small-row align-left"]')
     concert = hall.concerts.new(url: (base_url+url).to_s, date: date)
-    concert[:desc] = texts[0].inner_html if texts[0] and not texts[0].inner_text.include?('В программе:')
-    concert[:prog] = texts[1].inner_html if texts[1] and texts[1].inner_text.include?('В программе:')
+    concert[:desc] = texts[0].inner_html.gsub(/(href="\/)([^"]+)"/,"\\1#{base_url.to_s}/\\2\"") if texts[0] and not texts[0].inner_text.include?('В программе:')
+    concert[:prog] = texts[1].inner_html.gsub(/(href="\/)([^"]+)"/,"\\1#{base_url.to_s}/\\2\"") if texts[1] and texts[1].inner_text.include?('В программе:')
     return concert if concert.save and concert.valid
     return nil
   end
