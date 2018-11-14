@@ -38,14 +38,15 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    addressable (2.3.6)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (5.0.1.20140414130214)
     aws-sdk (1.3.9)
       httparty (~> 0.7)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
-    bcrypt (3.1.9)
+    bcrypt (3.1.12)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -55,17 +56,17 @@ GEM
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
     browser (0.8.0)
-    bson (2.3.0)
-    builder (3.2.2)
+    bson (3.2.7)
+    builder (3.2.3)
     cancancan (1.9.2)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
       sshkit (~> 1.3)
-    capistrano-bundler (1.1.3)
+    capistrano-bundler (1.4.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-rails (1.1.2)
+    capistrano-rails (1.4.0)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     carrierwave (0.10.0)
@@ -73,26 +74,24 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    carrierwave-meta (0.0.5)
+    carrierwave-meta (0.0.7)
       activesupport (>= 3.0)
       carrierwave (>= 0.5.7)
       mime-types
     chunky_png (1.3.3)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.4)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
-    coffee-rails (4.1.0)
+    coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0)
     coffee-rails-source-maps (1.4.0)
       coffee-script-source (>= 1.6.1)
-    coffee-script (2.3.0)
+    coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.8.0)
-    colorize (0.7.3)
+    coffee-script-source (1.12.2)
     compass (1.0.1)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.1)
@@ -108,57 +107,55 @@ GEM
     compass-rails (2.0.1)
       compass (~> 1.0.0)
     compass-rails-source-maps (0.0.8)
-    connection_pool (2.1.0)
+    concurrent-ruby (1.1.3)
+    connection_pool (2.2.2)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
-    devise (3.4.1)
+    devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 6.0)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    diff-lcs (1.2.5)
-    easy_diff (0.0.3)
+    diff-lcs (1.3)
+    easy_diff (1.0.0)
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
-    execjs (2.2.2)
-    factory_girl (4.5.0)
+    execjs (2.7.0)
+    factory_girl (4.9.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.5.0)
-      factory_girl (~> 4.5.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffaker (1.25.0)
     ffi (1.9.6)
-    font-awesome-rails (4.2.0.0)
-      railties (>= 3.2, < 5.0)
-    geocoder (1.2.6)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
+    geocoder (1.5.0)
     glebtv-capistrano-unicorn (0.3.1)
       capistrano (~> 3.0)
     glebtv-carrierwave-mongoid (0.8.0)
       carrierwave (>= 0.8.0, < 0.11.0)
       mongoid (>= 3.0, < 5.0)
-    glebtv-ckeditor (4.4.3.4)
-      mime-types
+    glebtv-ckeditor (4.7.3.1)
+      cocaine
       orm_adapter (~> 0.5.0)
-      rails (~> 4.0)
-    glebtv-mongoid-paperclip (0.2.4)
-      mongoid (>= 3.0, < 5.0)
-      paperclip (>= 2.3.6)
     glebtv-mongoid-rspec (3.0.0)
       mongoid (>= 3.0, < 4.1)
       rake
       rspec (~> 3.0.0)
-    glebtv-mongoid_nested_set (0.4.3)
-      mongoid (>= 3.1.0, < 4.1)
-    glebtv-simple_captcha (0.6.7)
-    glebtv_mongoid_userstamp (0.4.1)
-      mongoid (~> 4.0.0.beta1)
-    haml (4.0.5)
+    glebtv-mongoid_nested_set (0.5.3)
+      mongoid (>= 4.0.0, < 6.1)
+    glebtv-simple_captcha (0.8.1)
+    glebtv_mongoid_userstamp (0.7.2)
+      mongoid (>= 4.0.0, < 7.0)
+      request_store
+    haml (5.0.4)
+      temple (>= 0.8.0)
       tilt
     hike (1.2.3)
     hipchat (1.4.0)
@@ -166,84 +163,113 @@ GEM
     hpricot (0.8.6)
     html2slim (0.1.0)
       hpricot
-    htmlentities (4.3.2)
+    htmlentities (4.3.4)
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    i18n (0.6.11)
-    jquery-rails (3.1.2)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
+    jquery-rails (3.1.5)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (5.0.2)
+    jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (1.8.1)
-    kaminari (0.16.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    json (1.8.6)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
+    kaminari-mongoid (1.0.1)
+      kaminari-core (~> 1.0)
+      mongoid
     kgio (2.9.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    mail (2.6.3)
-      mime-types (>= 1.16, < 3)
+    mail (2.7.1)
+      mini_mime (>= 0.1.1)
+    manual_slug (0.4.0)
+      activesupport
     method_source (0.8.2)
-    mime-types (2.4.3)
+    mime-types (3.2.2)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2018.0812)
+    mimemagic (0.3.0)
     mini_magick (4.0.0)
-    mini_portile (0.6.1)
-    minitest (5.4.3)
-    mongoid (4.0.0)
+    mini_mime (1.0.1)
+    mini_portile2 (2.3.0)
+    minitest (5.11.3)
+    mongoid (4.0.2)
       activemodel (~> 4.0)
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
-    mongoid-audit (1.0.0)
+    mongoid-audit (1.3.1)
       activesupport
       glebtv_mongoid_userstamp
-      kaminari
-      mongoid (~> 4.0.0)
-      mongoid-history (~> 0.4.4)
-    mongoid-history (0.4.4)
+      kaminari-mongoid
+      mongoid (>= 4.0.0, < 7.0)
+      mongoid-history (~> 0.6.1)
+    mongoid-compatibility (0.5.1)
+      activesupport
+      mongoid (>= 2.0)
+    mongoid-history (0.6.1)
       activesupport
       easy_diff
       mongoid (>= 3.0)
-    mongoid-paperclip (0.0.9)
-      paperclip (>= 2.3.6)
-    mongoid_slug (3.2.1)
-      mongoid (> 3.0)
+      mongoid-compatibility
+    mongoid-paperclip (0.0.11)
+      mongoid
+      paperclip (>= 2.3.6, != 4.3.0)
+    mongoid-slug (6.0.0)
+      mongoid (>= 3.0)
+      mongoid-compatibility
       stringex (~> 2.0)
-    moped (2.0.2)
-      bson (~> 2.2)
+    moped (2.0.7)
+      bson (~> 3.0)
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
-    multi_json (1.10.1)
+    multi_json (1.13.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nested_form (0.3.2)
-    nested_form_fields (0.5.3)
+    nested_form_fields (0.8.2)
+      coffee-rails (>= 3.2.1)
+      jquery-rails
       rails (>= 3.2.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.1)
-    nokogiri (1.6.4.1)
-      mini_portile (~> 0.6.0)
+    net-ssh (5.0.2)
+    nokogiri (1.8.5)
+      mini_portile2 (~> 2.3.0)
     optionable (0.2.0)
-    origin (2.1.1)
+    origin (2.3.1)
     orm_adapter (0.5.0)
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
+    paperclip (4.3.7)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
       mime-types
+      mimemagic (= 0.3.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    rack (1.5.2)
-    rack-pjax (0.8.0)
+    public_suffix (3.0.3)
+    rack (1.5.5)
+    rack-pjax (1.0.0)
       nokogiri (~> 1.5)
-      rack (~> 1.1)
-    rack-test (0.6.2)
+      rack (>= 1.1)
+    rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.6)
       actionmailer (= 4.1.6)
@@ -255,68 +281,73 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.6)
       sprockets-rails (~> 2.0)
-    rails_admin (0.6.5)
+    rails_admin (1.4.2)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
       font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (~> 3.0)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
+      haml (>= 4.0, < 6)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (>= 5.0, < 7)
+      kaminari (>= 0.14, < 2.0)
       nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 1.0)
-      sass-rails (~> 4.0)
-    rails_admin_nested_set (0.3.8)
-    rails_admin_settings (0.9.0.pre.6)
-    rails_admin_toggleable (0.4.1)
+      rack-pjax (>= 0.7)
+      rails (>= 4.0, < 6)
+      remotipart (~> 1.3)
+      sass-rails (>= 4.0, < 6)
+    rails_admin_nested_set (0.5.4)
+      rails (>= 4.1.0)
+      rails_admin
+    rails_admin_settings (1.5.0)
+    rails_admin_toggleable (0.8.3)
+      rails_admin
     railties (4.1.6)
       actionpack (= 4.1.6)
       activesupport (= 4.1.6)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
-    rake (10.3.2)
+    rake (12.3.1)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    remotipart (1.2.1)
+    remotipart (1.4.2)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rocket_cms (0.5.19)
+    rocket_cms (0.22.0)
       addressable
       coffee-rails
-      devise
-      geocoder
-      glebtv-ckeditor
-      glebtv-simple_captcha
       jquery-rails
       kaminari
-      rails (~> 4.1.6)
-      rails_admin
-      rails_admin_nested_set
-      rails_admin_settings (~> 0.9.0.pre.4)
-      rails_admin_toggleable
-      simple-navigation
-      simple_form
-      sitemap_generator
+      manual_slug
+      rails (>= 4.1.0, < 6.0)
       smart_excerpt
       stringex
       thor
-      turbolinks
       validates_email_format_of
-    rocket_cms_mongoid (0.5.19)
-      glebtv-mongoid-paperclip
+    rocket_cms_mongoid (0.22.0)
+      devise
+      geocoder
+      glebtv-ckeditor
       glebtv-mongoid_nested_set
-      mongoid (~> 4.0.0)
-      mongoid-audit (~> 1.0.0)
-      mongoid_slug
-      rails (~> 4.1.6)
-      rocket_cms (= 0.5.19)
-    rs_russian (0.8.0)
-      i18n (>= 0.6.0, < 0.8.0)
+      glebtv-simple_captcha
+      kaminari-mongoid
+      mongoid (>= 4.0.0, < 7.0)
+      mongoid-audit
+      mongoid-paperclip
+      mongoid-slug
+      rails_admin
+      rails_admin_nested_set
+      rails_admin_settings
+      rails_admin_toggleable
+      rocket_cms (= 0.22.0)
+      simple-navigation
+      simple_form
+      sitemap_generator
+    rs_russian (0.11.0)
+      activesupport (>= 3.0.0, < 6.0.0)
+      i18n (~> 0.9.0)
       unicode (~> 0.4.4)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -338,66 +369,61 @@ GEM
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.4)
-    rvm1-capistrano3 (1.3.2.2)
+    rvm1-capistrano3 (1.4.0)
       capistrano (~> 3.0)
       sshkit (>= 1.2)
-    safe_yaml (1.0.4)
-    sass (3.4.8)
+    sass (3.4.25)
     sentry-raven (0.12.1)
       faraday (>= 0.7.6)
-    simple-navigation (3.13.0)
+    simple-navigation (4.0.5)
       activesupport (>= 2.3.2)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
-    sitemap_generator (5.0.5)
-      builder
-    slim (2.1.0)
-      temple (~> 0.6.9)
+    simple_form (4.0.0)
+      actionpack (> 4)
+      activemodel (> 4)
+    sitemap_generator (6.0.1)
+      builder (~> 3.0)
+    slim (3.0.9)
+      temple (>= 0.7.6, < 0.9)
       tilt (>= 1.3.3, < 2.1)
-    slim-rails (2.1.5)
-      actionpack (>= 3.0, < 4.2)
-      activesupport (>= 3.0, < 4.2)
-      railties (>= 3.0, < 4.2)
-      slim (~> 2.0)
+    slim-rails (3.2.0)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      slim (>= 3.0, < 5.0)
     slop (3.6.0)
-    smart_excerpt (0.1.4)
+    smart_excerpt (0.1.5)
       activesupport
       htmlentities
     spring (1.1.3)
-    sprockets (2.12.3)
+    sprockets (2.12.5)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.0)
+    sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sshkit (1.5.1)
-      colorize
+    sshkit (1.18.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    stringex (2.5.2)
-    temple (0.6.10)
-    thor (0.19.1)
-    thread_safe (0.3.4)
+    stringex (2.8.5)
+    temple (0.8.0)
+    thor (0.20.3)
+    thread_safe (0.3.6)
     tilt (1.4.1)
-    turbolinks (2.5.2)
-      coffee-rails
-    tzinfo (1.2.2)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    unicode (0.4.4.1)
+    unicode (0.4.4.4)
     unicorn (4.8.3)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
     uuidtools (2.1.5)
-    validates_email_format_of (1.6.1)
+    validates_email_format_of (1.6.3)
       i18n
-    warden (1.2.3)
+    warden (1.2.7)
       rack (>= 1.0)
-    x-real-ip (0.2.0)
+    x-real-ip (0.2.1)
       activesupport
       rack
 
@@ -411,37 +437,40 @@ DEPENDENCIES
   bootstrap-sass
   browser
   cancancan
-  capistrano (~> 3.2.0)
-  capistrano-bundler
-  capistrano-rails
-  carrierwave-meta
+  capistrano (~> 3.2.1)
+  capistrano-bundler (>= 1.1.3)
+  capistrano-rails (>= 1.1.2)
+  carrierwave-meta (>= 0.0.5)
   coffee-rails-source-maps
   compass (~> 1.0.0)
   compass-rails (~> 2.0.0)
   compass-rails-source-maps
   database_cleaner
   email_spec
-  factory_girl_rails
+  factory_girl_rails (>= 4.5.0)
   ffaker
-  glebtv-capistrano-unicorn
-  glebtv-carrierwave-mongoid
-  glebtv-mongoid-rspec
+  glebtv-capistrano-unicorn (>= 0.3.1)
+  glebtv-carrierwave-mongoid (>= 0.8.0)
+  glebtv-mongoid-rspec (>= 3.0.0)
   hipchat
   html2slim
   mini_magick
   mongoid (~> 4.0.0)
-  mongoid-paperclip
-  nested_form_fields
+  mongoid-paperclip (>= 0.0.9)
+  nested_form_fields (>= 0.5.3)
   pry-rails
   rails (= 4.1.6)
-  rocket_cms_mongoid
-  rs_russian
-  rspec-rails
-  rvm1-capistrano3
+  rocket_cms_mongoid (>= 0.5.19)
+  rs_russian (>= 0.10.0)
+  rspec-rails (>= 3.0.2)
+  rvm1-capistrano3 (>= 1.3.2.2)
   sass (~> 3.4.4)
   sass-rails!
   sentry-raven
-  slim-rails
+  slim-rails (>= 2.1.5)
   spring
   unicorn
-  x-real-ip
+  x-real-ip (>= 0.2.0)
+
+BUNDLED WITH
+   1.16.6
