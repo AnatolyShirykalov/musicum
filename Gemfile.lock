@@ -187,7 +187,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
-    mini_magick (4.0.0)
+    mini_magick (4.9.4)
     mini_portile (0.6.1)
     minitest (5.4.3)
     mongoid (4.0.0)
@@ -428,7 +428,7 @@ DEPENDENCIES
   glebtv-mongoid-rspec
   hipchat
   html2slim
-  mini_magick
+  mini_magick (>= 4.9.4)
   mongoid (~> 4.0.0)
   mongoid-paperclip
   nested_form_fields
@@ -445,3 +445,6 @@ DEPENDENCIES
   spring
   unicorn
   x-real-ip
+
+BUNDLED WITH
+   1.17.3
