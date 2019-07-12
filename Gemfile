@@ -28,7 +28,7 @@ gem 'x-real-ip'
 gem 'sentry-raven'
 gem 'carrierwave-meta'
 gem 'glebtv-carrierwave-mongoid'
-gem 'mini_magick'
+gem 'mini_magick', '>= 4.9.4'
 
 group :development do
   gem 'better_errors'
