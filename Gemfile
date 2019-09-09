@@ -9,7 +9,7 @@ gem 'html2slim'
 gem 'bootstrap-sass'
 
 gem 'nested_form_fields'
-gem 'rocket_cms_mongoid'
+gem 'rocket_cms_mongoid', '>= 0.5.19'
 gem 'browser'
 
 gem 'sass-rails', github: 'rails/sass-rails', ref: '3a9e47db7d769221157c82229fc1bade55b580f0'
